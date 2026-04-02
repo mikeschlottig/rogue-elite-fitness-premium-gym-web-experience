@@ -1,8 +1,7 @@
 import '@/lib/errorReporter';
-import { enableMapSet } from "immer";
-enableMapSet();
-import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { enableMapSet } from "immer";
+
 import {
   createBrowserRouter,
   RouterProvider,
@@ -14,6 +13,18 @@ import '@/index.css'
 import { HomePage } from '@/pages/HomePage'
 import { MembershipPage } from '@/pages/MembershipPage'
 import { MarketingLayout } from '@/components/layout/MarketingLayout'
+
+enableMapSet();
+
+let root: any = (window as any).__root;
+
+if (import.meta.hot) {
+  import.meta.hot.dispose(() => {
+    root?.unmount();
+    delete (window as any).__root;
+  });
+}
+
 const queryClient = new QueryClient();
 const router = createBrowserRouter([
   {
@@ -35,12 +46,15 @@ const router = createBrowserRouter([
     errorElement: <RouteErrorBoundary />,
   },
 ]);
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <QueryClientProvider client={queryClient}>
-      <ErrorBoundary>
-        <RouterProvider router={router} />
-      </ErrorBoundary>
-    </QueryClientProvider>
-  </StrictMode>,
-)
+if (!root) {
+  root = createRoot(document.getElementById('root')!);
+  (window as any).__root = root;
+}
+
+root.render(
+  <QueryClientProvider client={queryClient}>
+    <ErrorBoundary>
+      <RouterProvider router={router} />
+    </ErrorBoundary>
+  </QueryClientProvider>
+);
