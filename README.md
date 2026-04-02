@@ -1,6 +1,6 @@
 # Rogue Elite Fitness
 
-[![[cloudflarebutton]]](https://deploy.workers.cloudflare.com)
+[![[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/mikeschlottig/rogue-elite-fitness-premium-gym-web-experience)]](https://deploy.workers.cloudflare.com)
 
 A modern, full-stack fitness application built with React, TypeScript, and Cloudflare Workers. Track workouts, monitor progress, and stay motivated with a sleek, responsive UI powered by the edge.
 
@@ -127,7 +127,7 @@ Routes auto-reload in dev mode.
    ```
    Deploys Worker + static assets to your Cloudflare account.
 
-[![[cloudflarebutton]]](https://deploy.workers.cloudflare.com)
+[![[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/mikeschlottig/rogue-elite-fitness-premium-gym-web-experience)]](https://deploy.workers.cloudflare.com)
 
 **Custom Domain**: After deployment, bind via Cloudflare Dashboard > Workers > Triggers.
 
