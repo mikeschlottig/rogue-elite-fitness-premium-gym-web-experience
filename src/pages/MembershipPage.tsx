@@ -5,18 +5,12 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { toast } from 'sonner';
 export function MembershipPage() {
-  const handleInquiry = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success("Inquiry Sent! An elite coach will reach out within 24 hours.");
-    (e.target as HTMLFormElement).reset();
-  };
   return (
     <div className="bg-[#0A0A0A] pt-32 pb-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <header className="text-center mb-20">
-          <motion.h1
+          <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             className="text-6xl md:text-8xl font-black tracking-tighter mb-6"
@@ -28,7 +22,7 @@ export function MembershipPage() {
           </p>
         </header>
         <PricingCards />
-        <section id="coaching-inquiry" className="mt-32 max-w-4xl mx-auto scroll-mt-32">
+        <section className="mt-32 max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl font-black mb-6 uppercase tracking-tight">Personal Coaching</h2>
@@ -49,16 +43,16 @@ export function MembershipPage() {
             </div>
             <div className="bg-black p-8 border border-white/5">
               <h3 className="text-xl font-bold mb-6 text-white uppercase">Inquire about Coaching</h3>
-              <form className="space-y-4" onSubmit={handleInquiry}>
+              <form className="space-y-4">
                 <div className="space-y-2">
                   <Label className="text-xs uppercase tracking-widest text-gray-500">Name</Label>
-                  <Input required className="bg-zinc-900 border-white/10 rounded-none h-12" placeholder="Full Name" />
+                  <Input className="bg-zinc-900 border-white/10 rounded-none h-12" placeholder="Full Name" />
                 </div>
                 <div className="space-y-2">
                   <Label className="text-xs uppercase tracking-widest text-gray-500">Goal</Label>
-                  <Textarea required className="bg-zinc-900 border-white/10 rounded-none min-h-[100px]" placeholder="What are you training for?" />
+                  <Textarea className="bg-zinc-900 border-white/10 rounded-none min-h-[100px]" placeholder="What are you training for?" />
                 </div>
-                <Button type="submit" className="w-full bg-[#FF4500] hover:bg-[#E53E00] text-white font-black h-12 rounded-none">
+                <Button className="w-full bg-[#FF4500] hover:bg-[#E53E00] text-white font-black h-12 rounded-none">
                   SEND INQUIRY
                 </Button>
               </form>

@@ -12,23 +12,26 @@ import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { RouteErrorBoundary } from '@/components/RouteErrorBoundary';
 import '@/index.css'
 import { HomePage } from '@/pages/HomePage'
-import { TopNav } from '@/components/layout/TopNav'
-import { Footer } from '@/components/layout/Footer'
+import { MembershipPage } from '@/pages/MembershipPage'
+import { MarketingLayout } from '@/components/layout/MarketingLayout'
 const queryClient = new QueryClient();
-// Global layout wrapper for marketing site
-const PageWrapper = ({ children }: { children: React.ReactNode }) => (
-  <div className="flex flex-col min-h-screen">
-    <TopNav />
-    <main className="flex-grow">
-      {children}
-    </main>
-    <Footer />
-  </div>
-);
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <PageWrapper><HomePage /></PageWrapper>,
+    element: (
+      <MarketingLayout>
+        <HomePage />
+      </MarketingLayout>
+    ),
+    errorElement: <RouteErrorBoundary />,
+  },
+  {
+    path: "/membership",
+    element: (
+      <MarketingLayout>
+        <MembershipPage />
+      </MarketingLayout>
+    ),
     errorElement: <RouteErrorBoundary />,
   },
 ]);

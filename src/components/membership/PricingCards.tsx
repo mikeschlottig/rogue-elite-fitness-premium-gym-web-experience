@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Check } from 'lucide-react';
+import { Check, Shield } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 const tiers = [
@@ -55,8 +55,8 @@ export function PricingCards() {
           whileHover={tier.highlight ? { scale: 1.02 } : {}}
           className={cn(
             "relative p-8 border flex flex-col h-full transition-all duration-300",
-            tier.highlight
-              ? "bg-[#FF4500]/5 border-[#FF4500] shadow-[0_0_50px_-12px_rgba(255,69,0,0.3)] z-10"
+            tier.highlight 
+              ? "bg-[#FF4500]/5 border-[#FF4500] shadow-[0_0_50px_-12px_rgba(255,69,0,0.3)] z-10" 
               : "bg-black border-white/10"
           )}
         >
@@ -81,16 +81,15 @@ export function PricingCards() {
               </li>
             ))}
           </ul>
-          <Button
-            asChild
+          <Button 
             className={cn(
               "w-full h-12 font-black rounded-none transition-all",
-              tier.highlight
-                ? "bg-[#FF4500] hover:bg-[#E53E00] text-white"
+              tier.highlight 
+                ? "bg-[#FF4500] hover:bg-[#E53E00] text-white" 
                 : "bg-zinc-900 hover:bg-zinc-800 text-white"
             )}
           >
-            <a href="#coaching-inquiry">SELECT PLAN</a>
+            SELECT PLAN
           </Button>
         </motion.div>
       ))}
