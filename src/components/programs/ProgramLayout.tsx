@@ -5,7 +5,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { toast } from 'sonner';
 interface TrainerInfo {
   name: string;
   role: string;
@@ -30,11 +29,6 @@ export function ProgramLayout({
   schedule,
   trainer
 }: ProgramLayoutProps) {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success("Application Received! Our team will contact you shortly.");
-    (e.target as HTMLFormElement).reset();
-  };
   return (
     <div className="bg-[#0A0A0A] text-white">
       {/* Hero */}
@@ -49,8 +43,8 @@ export function ProgramLayout({
               <p className="text-[#FF4500] font-black tracking-widest uppercase text-sm mb-4">{subtitle}</p>
               <h1 className="text-6xl md:text-8xl font-black tracking-tighter mb-8 uppercase leading-[0.85]">{title}</h1>
               <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-lg">{description}</p>
-              <Button asChild size="lg" className="bg-[#FF4500] hover:bg-[#E53E00] text-white font-black px-10 h-14 rounded-none tracking-tight">
-                <a href="#apply">JOIN THIS PROGRAM</a>
+              <Button size="lg" className="bg-[#FF4500] hover:bg-[#E53E00] text-white font-black px-10 h-14 rounded-none tracking-tight">
+                JOIN THIS PROGRAM
               </Button>
             </motion.div>
             <motion.div
@@ -59,8 +53,8 @@ export function ProgramLayout({
               className="relative h-[500px] lg:h-[600px]"
             >
               <div className="absolute inset-0 bg-[#FF4500]/10 border border-[#FF4500]/20 -rotate-3" />
-              <img
-                src={heroImage}
+              <img 
+                src={heroImage} 
                 alt={title}
                 className="w-full h-full object-cover shadow-2xl relative z-10 grayscale hover:grayscale-0 transition-all duration-700"
               />
@@ -120,7 +114,7 @@ export function ProgramLayout({
         </div>
       </section>
       {/* Inquiry */}
-      <section id="apply" className="py-24 bg-[#FF4500] scroll-mt-20">
+      <section className="py-24 bg-[#FF4500]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
@@ -128,22 +122,22 @@ export function ProgramLayout({
               <p className="text-black/80 font-bold text-lg uppercase max-w-md">Our {title} slots are limited to ensure elite coaching quality. Reserve your spot today.</p>
             </div>
             <div className="bg-black p-8 md:p-12 border border-black/10 shadow-2xl">
-              <form className="space-y-6" onSubmit={handleSubmit}>
+              <form className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label className="text-white text-xs uppercase tracking-widest opacity-50">Name</Label>
-                    <Input required className="bg-zinc-900 border-white/10 rounded-none h-12 text-white" placeholder="First Last" />
+                    <Input className="bg-zinc-900 border-white/10 rounded-none h-12 text-white" placeholder="First Last" />
                   </div>
                   <div className="space-y-2">
                     <Label className="text-white text-xs uppercase tracking-widest opacity-50">Email</Label>
-                    <Input required type="email" className="bg-zinc-900 border-white/10 rounded-none h-12 text-white" placeholder="athlete@email.com" />
+                    <Input className="bg-zinc-900 border-white/10 rounded-none h-12 text-white" placeholder="athlete@email.com" />
                   </div>
                 </div>
                 <div className="space-y-2">
                   <Label className="text-white text-xs uppercase tracking-widest opacity-50">Experience Level</Label>
-                  <Input required className="bg-zinc-900 border-white/10 rounded-none h-12 text-white" placeholder="Beginner, Pro, etc." />
+                  <Input className="bg-zinc-900 border-white/10 rounded-none h-12 text-white" placeholder="Beginner, Pro, etc." />
                 </div>
-                <Button type="submit" className="w-full bg-white hover:bg-gray-200 text-black font-black h-14 rounded-none text-lg">
+                <Button className="w-full bg-white hover:bg-gray-200 text-black font-black h-14 rounded-none text-lg">
                   APPLY FOR PROGRAM <ArrowRight className="ml-2 w-5 h-5" />
                 </Button>
               </form>

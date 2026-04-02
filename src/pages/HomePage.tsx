@@ -40,7 +40,7 @@ export function HomePage() {
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#FF4500]/10 border border-[#FF4500]/20 text-[#FF4500] text-xs font-bold tracking-widest uppercase mb-6">
               <Zap className="w-3 h-3" /> Elite Performance Only
             </div>
-            <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-6">
+            <h1 className="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] mb-6 uppercase">
               FORGE YOUR <br />
               <span className="text-[#FF4500]">LEGACY.</span>
             </h1>
@@ -48,18 +48,18 @@ export function HomePage() {
               Experience the pinnacle of fitness in Grants Pass. High-end equipment, expert coaching, and a community of winners.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild size="lg" className="bg-[#FF4500] hover:bg-[#E53E00] text-white font-bold h-14 px-8 rounded-none">
+              <Button asChild size="lg" className="bg-[#FF4500] hover:bg-[#E53E00] text-white font-black h-14 px-8 rounded-none uppercase tracking-tighter">
                 <Link to="/membership">
                   START YOUR JOURNEY <ArrowRight className="ml-2 w-5 h-5" />
                 </Link>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-white/20 hover:bg-white/5 text-white font-bold h-14 px-8 rounded-none">
-                <a href="#classes">VIEW CLASSES</a>
+              <Button asChild size="lg" variant="outline" className="border-white/20 hover:bg-white/5 text-white font-black h-14 px-8 rounded-none uppercase tracking-tighter">
+                <a href="#classes">VIEW PROGRAMS</a>
               </Button>
             </div>
           </motion.div>
         </div>
-        <motion.div 
+        <motion.div
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 2, repeat: Infinity }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 text-white/50"
@@ -79,7 +79,7 @@ export function HomePage() {
               {...fadeInUp}
               className="lg:w-1/2"
             >
-              <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">
+              <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight uppercase tracking-tighter">
                 MORE THAN A GYM.<br />
                 <span className="text-[#FF4500]">A STANDING REVOLUTION.</span>
               </h2>
@@ -96,8 +96,8 @@ export function HomePage() {
                   </div>
                 ))}
               </div>
-              <Button className="mt-10 bg-transparent border border-[#FF4500] text-[#FF4500] hover:bg-[#FF4500] hover:text-white transition-all font-bold rounded-none px-8">
-                LEARN OUR METHOD
+              <Button asChild className="mt-10 bg-transparent border border-[#FF4500] text-[#FF4500] hover:bg-[#FF4500] hover:text-white transition-all font-black rounded-none px-8 h-12 uppercase tracking-tighter">
+                <Link to="/method">LEARN OUR METHOD</Link>
               </Button>
             </motion.div>
             <motion.div
@@ -128,11 +128,11 @@ export function HomePage() {
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white via-transparent to-transparent" />
         </div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <h2 className="text-4xl md:text-6xl font-black text-black mb-8">READY TO BECOME ELITE?</h2>
+          <h2 className="text-4xl md:text-6xl font-black text-black mb-8 uppercase tracking-tighter">READY TO BECOME ELITE?</h2>
           <p className="text-black/80 text-lg md:text-xl font-bold mb-10 max-w-2xl mx-auto uppercase">
             Join the ranks of the most dedicated athletes in Oregon. Your first training session is on us.
           </p>
-          <Button asChild size="lg" className="bg-black hover:bg-zinc-900 text-white font-black h-16 px-12 rounded-none text-xl">
+          <Button asChild size="lg" className="bg-black hover:bg-zinc-900 text-white font-black h-16 px-12 rounded-none text-xl uppercase tracking-tighter">
             <Link to="/membership">CLAIM YOUR PASS</Link>
           </Button>
         </div>
