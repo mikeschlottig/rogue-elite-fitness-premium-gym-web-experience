@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Dumbbell, ChevronDown } from 'lucide-react';
+import { Menu, X, Dumbbell } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -11,6 +11,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 export function TopNav() {
@@ -53,42 +54,45 @@ export function TopNav() {
           <NavigationMenu>
             <NavigationMenuList className="gap-2">
               <NavigationMenuItem>
-                <Link to="/">
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent text-gray-300 hover:text-white hover:bg-white/5")}>
+                <NavigationMenuLink asChild>
+                  <Link to="/" className={cn(navigationMenuTriggerStyle(), "bg-transparent text-gray-300 hover:text-white hover:bg-white/5")}>
                     Home
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-transparent text-gray-300 hover:text-white hover:bg-white/5">
                   Programs
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="grid w-[400px] gap-3 p-4 bg-zinc-950 border border-white/10 rounded-none md:w-[500px] md:grid-cols-2">
+                  <ul className="grid w-[400px] gap-3 p-4 bg-black border border-white/10 rounded-none md:w-[500px] md:grid-cols-2">
                     {programs.map((program) => (
                       <li key={program.title}>
-                        <Link
-                          to={program.href}
-                          className="block select-none space-y-1 rounded-none p-3 leading-none no-underline outline-none transition-colors hover:bg-white/5 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                        >
-                          <div className="text-sm font-black leading-none text-[#FF4500] uppercase">{program.title}</div>
-                          <p className="line-clamp-2 text-xs leading-snug text-muted-foreground mt-1">
-                            {program.desc}
-                          </p>
-                        </Link>
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to={program.href}
+                            className="block select-none space-y-1 rounded-none p-3 leading-none no-underline outline-none transition-colors hover:bg-white/5 hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                          >
+                            <div className="text-sm font-black leading-none text-[#FF4500] uppercase">{program.title}</div>
+                            <p className="line-clamp-2 text-xs leading-snug text-muted-foreground mt-1">
+                              {program.desc}
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
                       </li>
                     ))}
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link to="/method">
-                  <NavigationMenuLink className={cn(navigationMenuTriggerStyle(), "bg-transparent text-gray-300 hover:text-white hover:bg-white/5")}>
+                <NavigationMenuLink asChild>
+                  <Link to="/method" className={cn(navigationMenuTriggerStyle(), "bg-transparent text-gray-300 hover:text-white hover:bg-white/5")}>
                     The Method
-                  </NavigationMenuLink>
-                </Link>
+                  </Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
             </NavigationMenuList>
+            <NavigationMenuViewport className="bg-black border border-white/10 shadow-2xl" />
           </NavigationMenu>
           <Button asChild className="bg-[#FF4500] hover:bg-[#E53E00] text-white font-black px-6 rounded-none ml-4 tracking-tighter">
             <Link to="/membership">JOIN THE ELITE</Link>

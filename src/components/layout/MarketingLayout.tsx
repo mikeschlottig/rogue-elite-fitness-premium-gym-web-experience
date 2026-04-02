@@ -1,6 +1,7 @@
 import React from 'react';
 import { TopNav } from './TopNav';
 import { Footer } from './Footer';
+import { Toaster } from "@/components/ui/sonner";
 interface MarketingLayoutProps {
   children: React.ReactNode;
 }
@@ -12,6 +13,7 @@ export function MarketingLayout({ children }: MarketingLayoutProps) {
         {children}
       </main>
       <Footer />
+      <Toaster position="bottom-right" theme="dark" />
     </div>
   );
 }
